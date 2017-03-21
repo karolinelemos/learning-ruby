@@ -21,7 +21,7 @@ for i in 1..limit
 	right = secret_number == attemp1.to_i
 
 	if right
-		puts "Congrats! You're right :)"
+		puts "Congrats! You win! :)"
 		break
 	else
 		larger = secret_number > attemp1.to_i
