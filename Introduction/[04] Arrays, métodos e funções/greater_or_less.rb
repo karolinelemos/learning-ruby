@@ -3,7 +3,7 @@ def welcome
 	puts "What'is your name?"
 	nome = gets 
 	puts "\n\n"
-	puts "Go start the game, " + nome 
+	puts "Go start the game, #{nome}" 
 end
 
 def sort_number 
@@ -15,12 +15,12 @@ end
 
 def get_number(attempts, i, limit)
 	puts "\n\n"
-	puts "Attempt " + i.to_s + " of " + limit.to_s
-	puts "Your attempts: " + attempts.to_s
+	puts "Attempt #{i} of #{limit}"
+	puts "Your attempts: #{attempts}"
 	puts "Enter a number"
 
 	attemp1 = gets 
-	puts "Did you get it right? You typed " + attemp1 
+	puts "Did you get it right? You typed #{attemp1}"
 	attemp1.to_i
 end
 
@@ -44,18 +44,21 @@ end
 
 welcome
 secret_number = sort_number 
-
+points = 1000
 limit = 3
 attempts = []
 
 for i in 1..limit
 	attemp1 = get_number attempts, i, limit
 	attempts << attemp1
-
+	lost_points = (attemp1 - secret_number) / 2.0
+	points -= lost_points
 	if verify attemp1, secret_number
 		break
 	end 
 	# break if verify attemp1, secret_number
 end
 
-#continue in 4.7 
+puts "You win #{points} points"
+
+# continue in 5.3
